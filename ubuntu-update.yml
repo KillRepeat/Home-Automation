@@ -1,35 +1,28 @@
 ---
 - hosts: linux
   become: yes
-  become_method: sudo
   tasks:
-
-    - name: "Update packages"
+    - name: Update packages
       apt:
         update_cache: yes # apt-get update
         upgrade: full
-
     - name: "Update dist"
       apt:
          upgrade: dist
-
     - name: UpdateRaw
       shell: apt-get update -y
     - name: UpgradeRaw
       shell: apt-get upgrade -y
     - name: DistUpgradeRaw
       shell: sudo apt-get dist-upgrade -y
-
     - name: Check if a reboot is required.
       ansible.builtin.stat:
         path: /var/run/reboot-required
         get_md5: no
       register: reboot_required_file
-
     - name: Reboot the server (if required).
       ansible.builtin.reboot:
       when: reboot_required_file.stat.exists == true
-
     - name: Remove dependencies that are no longer required.
       ansible.builtin.apt:
         autoremove: yes
