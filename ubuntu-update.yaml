@@ -9,12 +9,6 @@
     - name: "Update dist"
       apt:
          upgrade: dist
-    - name: UpdateRaw
-      shell: apt-get update -y
-    - name: UpgradeRaw
-      shell: apt-get upgrade -y
-    - name: DistUpgradeRaw
-      shell: sudo apt-get dist-upgrade -y
     - name: Check if a reboot is required.
       ansible.builtin.stat:
         path: /var/run/reboot-required
