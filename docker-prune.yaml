@@ -5,6 +5,6 @@
   task:
     - name: Clean up Docker images
       community.docker.docker_prune:
-        images: yes
-        images_filters:
+          images: yes
+          images_filters:
           dangling: false
