@@ -1,5 +1,10 @@
-- name: Clean up Docker images
-  docker_prune:
-    images: yes
-    images_filters:
-      dangling: false
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  task:
+    - name: Clean up Docker images
+      docker_prune:
+        images: yes
+        images_filters:
+          dangling: false
