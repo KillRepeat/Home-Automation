@@ -1,7 +1,7 @@
 ---
 - hosts: all
   become: yes
-#  task:
+  task:
 #    - name: Clean up Docker images
 #      community.docker.docker_prune:
 #          images: yes
