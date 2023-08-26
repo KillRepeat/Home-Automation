@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: docker prune
+  hosts: all
   become: yes
   task:
     - name: Clean up Docker images
