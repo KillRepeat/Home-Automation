@@ -2,7 +2,6 @@
 
 - hosts: all
   become: yes
-  become_method: sudo
   task:
     - name: Clean up Docker images
       community.docker.docker_prune:
