@@ -1,9 +1,9 @@
 ---
 - hosts: all
   become: yes
-  task:
-#    - name: Clean up Docker images
-#      community.docker.docker_prune:
-#          images: yes
-#          images_filters:
-#          dangling: false
+  tasks:
+    - name: Clean up Docker images
+      community.docker.docker_prune:
+          images: yes
+          images_filters:
+          dangling: false
