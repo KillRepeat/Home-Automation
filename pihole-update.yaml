@@ -6,3 +6,5 @@
 
     - name: UpdatePiholeRaw
       shell: pihole -up
+    - name: UpdateGravityRaw
+      shell: pihole -g
